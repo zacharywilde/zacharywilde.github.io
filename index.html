@@ -130,6 +130,7 @@
     color: var(--ink);
     text-decoration: none;
     display: block;
+    cursor: default;
   }
 
   .card-roles {
@@ -148,7 +149,7 @@
     font-size: 0.53rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: #6b5344;
     display: block;
     font-weight: 400;
   }
@@ -159,7 +160,7 @@
     gap: 10px;
     margin: 4px 0;
   }
-  .card-rule-line { flex: 1; height: 1px; background: var(--rule); }
+  .card-rule-line { flex: 1; height: 1px; background: var(--gold); }
   .card-rule-dot  { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: 0.45; }
 
   .card-bottom { display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; }
@@ -210,8 +211,9 @@
 
   /* ── LEADERSHIP IN ACTION ──────────────── */
   .leadership-wrapper {
-    position: relative;
-    height: 480px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
     margin-top: 24px;
   }
 
@@ -219,15 +221,10 @@
     background: var(--cream-light);
     border: 1px solid var(--rule);
     padding: 20px 18px;
-    position: absolute;
-    width: calc(100% - 40px);
-    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
-
-  .leadership-card:nth-child(1) { top: 0; left: 0; }
-  .leadership-card:nth-child(2) { top: 140px; right: 0; }
-  .leadership-card:nth-child(3) { top: 280px; left: 0; }
-  .leadership-card:nth-child(4) { top: 140px; left: 50%; transform: translateX(-50%); }
 
   .leadership-title {
     font-family: 'Cormorant Garamond', serif;
@@ -265,7 +262,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
-    margin: 24px 0;
+    margin: 24px auto;
+    max-width: 320px;
   }
 
   .perf-photo {
@@ -366,7 +364,7 @@
 
   .looking-section li {
     font-size: 0.92rem;
-    color: var(--gray);
+    color: var(--ink);
     line-height: 1.8;
     margin-bottom: 12px;
     padding-left: 0;
@@ -375,6 +373,11 @@
   .looking-section li strong {
     color: var(--ink);
     font-weight: 500;
+  }
+
+  .looking-section p {
+    color: var(--ink);
+    font-weight: 400;
   }
 
   /* ── FOOTER ────────────────────────────── */
@@ -427,7 +430,7 @@
 <section class="landing">
   <article class="card">
     <div class="card-top">
-      <a href="#" class="card-name">[Zachary Wilde]</a>
+      <span class="card-name">[Zachary Wilde]</span>
       <span class="card-roles">Artistic Director<br>Managing Director<br>Theatre Educator</span>
       <span class="card-sector">Leadership for the Stage & Beyond</span>
     </div>
@@ -541,14 +544,6 @@
   <img src="images/placeholder.jpg" alt="Portfolio image" class="portfolio-image" style="display: none;">
 </section>
 
-<!-- DECORATIVE DIVIDER -->
-<div style="text-align: center; padding: 24px 0; color: var(--gold);">
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="portfolio-divider">
-    <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/>
-    <circle cx="20" cy="20" r="6" fill="currentColor" opacity="0.3"/>
-  </svg>
-</div>
-
 <!-- WHAT I'M LOOKING FOR -->
 <section class="looking-section">
   <div class="s-label">Vision</div>
@@ -558,7 +553,7 @@
     <li>A <strong>community</strong> that values diversity, equity, compassion, and the power of art.</li>
     <li>Kind <strong>people</strong> who want to make the world a better, more interesting place.</li>
   </ul>
-  <p style="margin-top: 20px; color: var(--ink); line-height: 1.8;">If you feel our values align and you're looking to make the best decision of your life, please reach out! I'd love to hear from you!</p>
+  <p style="margin-top: 20px; color: var(--ink); line-height: 1.8;">If you feel our values align and you're looking to make the best decision of your life 😄, please reach out! I'd love to hear from you!</p>
 </section>
 
 <!-- FOOTER -->
