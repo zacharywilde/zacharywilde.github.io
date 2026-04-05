@@ -9,14 +9,14 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --cream: #e8dfd2;
-    --cream-dark: #dfd7ca;
-    --white: #fdfaf6;
+    --cream: #bfa995;
+    --cream-light: #c9bfb5;
     --ink: #16120e;
     --gold: #b8924a;
     --gold-dark: #8b6d38;
     --gray: #7a7068;
-    --rule: #ddd5c4;
+    --gray-dark: #4a4540;
+    --rule: #b5a99d;
   }
 
   html { scroll-behavior: smooth; }
@@ -57,6 +57,13 @@
     margin-bottom: 16px;
   }
 
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
   p {
     font-size: 0.92rem;
     color: var(--gray);
@@ -87,7 +94,7 @@
     width: 100%;
     max-width: 360px;
     aspect-ratio: 1.75 / 1;
-    background: var(--cream);
+    background: var(--cream-light);
     border: 1px solid var(--rule);
     box-shadow:
       0 2px 4px rgba(0,0,0,0.04),
@@ -124,8 +131,6 @@
     text-decoration: none;
     display: block;
   }
-  .card-name em { font-style: italic; color: var(--gold); }
-  .card-name:hover em { color: var(--gold-light); }
 
   .card-roles {
     font-size: 0.55rem;
@@ -184,53 +189,75 @@
 
   /* ── ORIGIN STORY ──────────────────────── */
   .origin {
-    background: var(--ink);
-    color: var(--cream);
+    background: var(--gray-dark);
+    color: var(--cream-light);
     padding: 48px 24px;
   }
 
-  .origin h2,
   .origin .s-label { color: var(--gold); }
 
-  .origin p { color: var(--cream); }
+  .origin h2 { color: var(--gold); }
+
+  .origin p { color: var(--cream-light); }
 
   .origin-headshot {
     width: 100%;
     max-width: 260px;
-    margin: 20px auto 28px;
+    margin: 24px auto 28px;
     display: block;
     border-radius: 4px;
   }
 
   /* ── LEADERSHIP IN ACTION ──────────────── */
-  .leadership-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 20px;
+  .leadership-wrapper {
+    position: relative;
+    height: 480px;
+    margin-top: 24px;
   }
 
   .leadership-card {
-    background: var(--cream-dark);
+    background: var(--cream-light);
     border: 1px solid var(--rule);
-    padding: 18px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    padding: 20px 18px;
+    position: absolute;
+    width: calc(100% - 40px);
+    max-width: 200px;
   }
+
+  .leadership-card:nth-child(1) { top: 0; left: 0; }
+  .leadership-card:nth-child(2) { top: 140px; right: 0; }
+  .leadership-card:nth-child(3) { top: 280px; left: 0; }
+  .leadership-card:nth-child(4) { top: 140px; left: 50%; transform: translateX(-50%); }
 
   .leadership-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     color: var(--ink);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .leadership-role {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--gold);
+    margin-bottom: 6px;
   }
 
   .leadership-text {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     color: var(--gray);
     line-height: 1.6;
+  }
+
+  .download-label {
+    display: block;
+    margin-top: 32px;
+    font-size: 0.88rem;
+    color: var(--gray);
+    font-style: italic;
+    text-align: center;
   }
 
   /* ── PERFORMANCE ARCHIVE ───────────────── */
@@ -248,27 +275,63 @@
     border-radius: 2px;
   }
 
-  .download-link {
+  .view-resume-options {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .view-link {
     display: inline-block;
     color: var(--gold);
     text-decoration: none;
     font-size: 0.88rem;
-    margin-top: 12px;
     transition: color 0.2s;
   }
-  .download-link:hover { color: var(--gold-dark); }
+  .view-link:hover { color: var(--gold-dark); }
 
   /* ── PORTFOLIO ─────────────────────────── */
+  .portfolio-section {
+    position: relative;
+  }
+
+  .portfolio-dark {
+    background: var(--gray-dark);
+    color: var(--cream-light);
+    padding: 48px 24px;
+  }
+
+  .portfolio-dark .s-label { color: var(--gold); }
+
+  .portfolio-dark h2 { color: var(--gold); }
+
+  .portfolio-dark p { color: var(--cream-light); }
+
   .portfolio-item {
     margin-bottom: 20px;
   }
 
   .portfolio-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: var(--ink);
-    font-weight: 400;
+    font-size: 1.05rem;
+    color: var(--gold);
+    font-weight: 600;
     margin-bottom: 6px;
+  }
+
+  .portfolio-dark .portfolio-title {
+    color: var(--gold);
+  }
+
+  .portfolio-desc {
+    margin-bottom: 8px;
+    color: var(--cream-light);
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .portfolio-dark .portfolio-desc {
+    color: var(--cream-light);
   }
 
   .portfolio-link {
@@ -280,24 +343,53 @@
   }
   .portfolio-link:hover { color: var(--gold-dark); }
 
+  .portfolio-image {
+    width: 100%;
+    max-width: 280px;
+    margin: 32px auto 0;
+    display: block;
+    border-radius: 4px;
+  }
+
+  .portfolio-divider {
+    width: 40px;
+    height: 40px;
+    margin: 32px auto;
+    opacity: 0.4;
+  }
+
   /* ── WHAT I'M LOOKING FOR ────────────── */
-  .looking-section p {
+  .looking-section ul {
+    list-style: none;
+    margin-top: 16px;
+  }
+
+  .looking-section li {
+    font-size: 0.92rem;
+    color: var(--gray);
+    line-height: 1.8;
     margin-bottom: 12px;
+    padding-left: 0;
+  }
+
+  .looking-section li strong {
+    color: var(--ink);
+    font-weight: 500;
   }
 
   /* ── FOOTER ────────────────────────────── */
   footer {
-    background: var(--ink);
-    color: var(--cream);
-    padding: 40px 24px;
+    background: var(--gray-dark);
+    color: var(--cream-light);
+    padding: 24px 24px;
     text-align: center;
     border-top: 1px solid var(--rule);
   }
 
   .footer-contact {
-    font-size: 0.88rem;
-    line-height: 1.8;
-    margin-bottom: 24px;
+    font-size: 0.84rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
   }
 
   .footer-contact a {
@@ -336,7 +428,7 @@
   <article class="card">
     <div class="card-top">
       <a href="#" class="card-name">[Zachary Wilde]</a>
-      <span class="card-roles">Artistic Director<br>Music Director<br>Theatre Educator</span>
+      <span class="card-roles">Artistic Director<br>Managing Director<br>Theatre Educator</span>
       <span class="card-sector">Leadership for the Stage & Beyond</span>
     </div>
     <div class="card-rule">
@@ -361,87 +453,112 @@
 <!-- ORIGIN STORY -->
 <section class="origin">
   <div class="s-label">Origin Story</div>
-  <h2>Raised in Theatre</h2>
   <img src="images/headshot.JPG" alt="Zachary Wilde Professional Headshot" class="origin-headshot">
-  <p>For over 20 years, theatre has been my home, my language, and my calling. What started as a young performer grew into a mission: to build spaces where artists thrive, communities gather, and transformation happens.</p>
-  <p>I believe in the power of live performance to change lives. Whether directing a musical with 55 students, managing complex events, or advocating for cultural access, I lead with integrity, collaboration, and an unwavering commitment to artistic excellence.</p>
+  <p>From the first church musical to the first children's theatre audition to the first professional job, theatre has been the one constant that has given me more joy than anything else in my life (even though <em>The Wizard of Oz</em> comes close). I love the physical spaces, the people, the culture, the creativity, the innovation, the we've-gotta-figure-this-out-quick moments, and, most of all, the community. I love it all.</p>
+  <p>Live performance is transformative and whether I'm teaching students their vocal parts, brainstorming next season's new merch ideas, or diversifying our revenue sources and balancing the budget, I always lead with integrity and artistic excellence.</p>
+  <p>My commitment to being the most well-rounded leader is what sets me apart from the rest and I intend on spending the rest of my life enriching the lives of others through theatre, education, and leadership. And I'm a really nice guy too!</p>
 </section>
 
-<!-- LEADERSHIP IN ACTION -->
+<!-- TEACHING & DIRECTING -->
 <section>
-  <div class="s-label">Leadership in Action</div>
+  <div class="s-label">Leadership</div>
   <h2>Teaching & Directing</h2>
-  <div class="leadership-grid">
+  
+  <div class="leadership-wrapper">
     <div class="leadership-card">
-      <h3 class="leadership-title">Artistic Leadership</h3>
-      <p class="leadership-text">Summer Theatre Camp Director (2025): Directed 2 musicals, 40 students, sold-out free performances.</p>
+      <div class="leadership-role">Artistic Leadership</div>
+      <h3 class="leadership-title">Summer Theatre Camp</h3>
+      <p class="leadership-text">Directed <em>Alice in Wonderland</em> and <em>Grease</em> with 40 students. Designed curriculum, managed auditions, coordinated all rehearsals and productions. Delivered two sold-out free community performances.</p>
     </div>
+
     <div class="leadership-card">
-      <h3 class="leadership-title">Artistic Leadership</h3>
-      <p class="leadership-text">School of the Arts Director (2025): Directed 2 musicals, 55 students, sold-out free performances.</p>
+      <div class="leadership-role">Operational Leadership</div>
+      <h3 class="leadership-title">Front Desk Operations</h3>
+      <p class="leadership-text">Managed front desk operations at Wyndham Hotel (Oct 2023–Oct 2024). Developed FOH scheduling systems, managed financial reporting, handled conflict resolution with professionalism.</p>
     </div>
+
     <div class="leadership-card">
-      <h3 class="leadership-title">Event Leadership</h3>
-      <p class="leadership-text">Event Planning & Execution: Hocus Pocus Viewing Party (Oct 2025), Fundraising Gala support.</p>
+      <div class="leadership-role">Artistic Leadership</div>
+      <h3 class="leadership-title">School of the Arts</h3>
+      <p class="leadership-text">Directed <em>Aladdin Jr.</em> and <em>Through the Decades</em> with 55 students. Built comprehensive curriculum, oversaw full program management, produced two sold-out free performances.</p>
     </div>
+
     <div class="leadership-card">
-      <h3 class="leadership-title">Community Advocate</h3>
-      <p class="leadership-text">Policy Proposal: County public performance space access. Systems-level thinking for cultural equity.</p>
+      <div class="leadership-role">Community Leadership</div>
+      <h3 class="leadership-title">Event & Advocacy</h3>
+      <p class="leadership-text">Produced Hocus Pocus Viewing Party (Oct 2025) with full marketing and risk management. Developed policy proposal for county public performance space access.</p>
     </div>
   </div>
+
+  <span class="download-label">↓ Downloadable Documents</span>
 </section>
 
 <!-- PERFORMANCE ARCHIVE -->
 <section>
-  <div class="s-label">Portfolio</div>
-  <h2>Performance Archive</h2>
+  <div class="s-label">Archive</div>
+  <h2>Performance History</h2>
   <div class="performance-grid">
     <img src="images/perf-01.JPG" alt="Performance photo 1" class="perf-photo">
     <img src="images/perf-04.jpg" alt="Performance photo 2" class="perf-photo">
     <img src="images/perf-07.JPG" alt="Performance photo 3" class="perf-photo">
     <img src="images/perf-08.JPG" alt="Performance photo 4" class="perf-photo">
   </div>
-  <a href="Theatre_Resume_Full.pdf" class="download-link">↓ Download Theatre Resume</a>
+  <div class="view-resume-options">
+    <a href="Theatre_Resume_Full.pdf" class="view-link">View Resume →</a>
+    <a href="Theatre_Resume_Full.pdf" class="view-link">Download PDF ↓</a>
+  </div>
 </section>
 
 <!-- PORTFOLIO DOCUMENTS -->
-<section>
-  <div class="s-label">My Work</div>
-  <h2>Portfolio</h2>
+<section class="portfolio-section portfolio-dark">
+  <div class="s-label">Work</div>
+  <h2>My Work: Portfolio</h2>
   
   <div class="portfolio-item">
-    <h3 class="portfolio-title">Grant Writing Sample</h3>
-    <p style="margin-bottom: 8px; color: var(--gray); font-size: 0.88rem;">Wildehouse Repertory Theatre grant proposal with budget.</p>
+    <h3 class="portfolio-title">Grant Writing</h3>
+    <p class="portfolio-desc">Wildehouse Repertory Theatre grant proposal with comprehensive budget, demonstrating nonprofit fundraising strategy and financial management.</p>
     <a href="Grant_Writing_Sample.pdf" class="portfolio-link">View Document →</a>
   </div>
 
   <div class="portfolio-item">
     <h3 class="portfolio-title">Directing Concept</h3>
-    <p style="margin-bottom: 8px; color: var(--gray); font-size: 0.88rem;">Aladdin Jr. directing vision & educational approach (School of the Arts, 2025).</p>
+    <p class="portfolio-desc"><em>Aladdin Jr.</em> (School of the Arts, 2025): Directing vision, casting philosophy, educational approach, and systems-level production management for 55 students.</p>
     <a href="Directing_Concept_Aladdin_Jr.pdf" class="portfolio-link">View Document →</a>
   </div>
 
   <div class="portfolio-item">
-    <h3 class="portfolio-title">Event Planning & Execution</h3>
-    <p style="margin-bottom: 8px; color: var(--gray); font-size: 0.88rem;">Hocus Pocus Viewing Party: Complete event plan with marketing, risk management, evaluation.</p>
+    <h3 class="portfolio-title">Event Planning</h3>
+    <p class="portfolio-desc">Hocus Pocus Viewing Party: Complete event execution with marketing strategy, risk management, budget, stakeholder communication, and evaluation plan.</p>
     <a href="Event_Organization_Plan.pdf" class="portfolio-link">View Document →</a>
   </div>
 
   <div class="portfolio-item">
     <h3 class="portfolio-title">AI Position Statement</h3>
-    <p style="margin-bottom: 8px; color: var(--gray); font-size: 0.88rem;">My evolving stance on AI in theatre: transparency, human-led, mission-focused.</p>
+    <p class="portfolio-desc">My evolving stance on artificial intelligence in theatre: transparency, human-led decision-making, environmental responsibility, and mission-focused approach.</p>
     <a href="AI_Position_Statement.pdf" class="portfolio-link">View Document →</a>
   </div>
+
+  <img src="images/placeholder.jpg" alt="Portfolio image" class="portfolio-image" style="display: none;">
 </section>
+
+<!-- DECORATIVE DIVIDER -->
+<div style="text-align: center; padding: 24px 0; color: var(--gold);">
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="portfolio-divider">
+    <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/>
+    <circle cx="20" cy="20" r="6" fill="currentColor" opacity="0.3"/>
+  </svg>
+</div>
 
 <!-- WHAT I'M LOOKING FOR -->
 <section class="looking-section">
   <div class="s-label">Vision</div>
   <h2>What I'm Looking For</h2>
-  <p>A place to settle and call home permanently. An organization that wants to innovate and discover. An organization that prioritizes education and community.</p>
-  <p>Most of all: kind, curious, passionate people and artists who want to make the world a better place and a whole lot nicer.</p>
-  <p style="margin-top: 16px; font-weight: 400; color: var(--ink);"><strong>I'm a well-rounded person with extensive experience across artistic leadership, education, operations, and community engagement.</strong> I'm ready to commit and get to work — not only willing to learn but constantly needing to learn more.</p>
-  <p style="margin-top: 12px; color: var(--gray);">I'm looking for people who value diversity and multiple truths, equity and compassion, and believe in art's power to transform.</p>
+  <ul>
+    <li>An <strong>organization</strong> that prioritizes education, innovation, discovery, and community.</li>
+    <li>A <strong>community</strong> that values diversity, equity, compassion, and the power of art.</li>
+    <li>Kind <strong>people</strong> who want to make the world a better, more interesting place.</li>
+  </ul>
+  <p style="margin-top: 20px; color: var(--ink); line-height: 1.8;">If you feel our values align and you're looking to make the best decision of your life, please reach out! I'd love to hear from you!</p>
 </section>
 
 <!-- FOOTER -->
