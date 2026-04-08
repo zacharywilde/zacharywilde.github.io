@@ -113,13 +113,13 @@
   .card::after {
     content: '';
     position: absolute;
-    width: 18px; height: 18px;
-    border-color: rgba(184,146,74,0.3);
+    width: 24px; height: 24px;
+    border-color: rgba(184,146,74,0.6);
     border-style: solid;
     pointer-events: none;
   }
-  .card::before { top: 11px; left: 11px; border-width: 1px 0 0 1px; }
-  .card::after  { bottom: 11px; right: 11px; border-width: 0 1px 1px 0; }
+  .card::before { top: 14px; left: 14px; border-width: 2px 0 0 2px; }
+  .card::after  { bottom: 14px; right: 14px; border-width: 0 2px 2px 0; }
 
   .card-top { display: flex; flex-direction: column; justify-content: flex-start; gap: 3px; }
 
@@ -177,9 +177,10 @@
     font-size: 0.48rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: #8B3A3A;
     min-width: 34px;
     flex-shrink: 0;
+    font-weight: 600;
   }
   .card-link-value {
     font-size: 0.7rem;
@@ -261,9 +262,16 @@
     display: block;
     margin-top: 32px;
     font-size: 0.88rem;
-    color: var(--gray);
+    color: #8B3A3A;
     font-style: italic;
     text-align: center;
+    text-decoration: none;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+  .download-label:hover {
+    color: #6b2c2c;
+    text-decoration: underline;
   }
 
   /* ── PERFORMANCE ARCHIVE ───────────────── */
@@ -273,6 +281,7 @@
     gap: 16px;
     margin: 24px auto;
     max-width: 380px;
+    align-items: start;
   }
 
   .perf-photo {
@@ -280,6 +289,11 @@
     height: auto;
     display: block;
     border-radius: 2px;
+  }
+
+  .perf-photo:first-child {
+    margin-top: 40px;
+  }
   }
 
   .view-resume-options {
@@ -290,12 +304,12 @@
 
   .view-link {
     display: inline-block;
-    color: #8B3A3A;
+    color: var(--gold);
     text-decoration: none;
     font-size: 0.88rem;
     transition: color 0.2s;
   }
-  .view-link:hover { color: #6b2c2c; }
+  .view-link:hover { color: var(--gold-dark); }
 
   /* ── PORTFOLIO ─────────────────────────── */
   .portfolio-section {
@@ -431,6 +445,11 @@
   @keyframes fadeIn {
     to { opacity: 1; }
   }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
 </style>
 </head>
 <body>
@@ -460,6 +479,7 @@
       </a>
     </div>
   </article>
+  <div style="text-align: center; margin-top: 24px; color: #8B3A3A; font-size: 1.1rem; opacity: 0.7; animation: bounce 2s infinite;">↓</div>
 </section>
 
 <!-- ORIGIN STORY -->
@@ -468,8 +488,8 @@
   <img src="images/headshot.JPG" alt="Zachary Wilde Professional Headshot" class="origin-headshot">
   <p style="font-size: 0.8rem; text-align: center; margin-bottom: 20px; color: var(--gold);">BFA Musical Theatre, Austin Peay State University (2021) | M.A. Arts Leadership & Cultural Management, Colorado State University (May 2025)</p>
   <p>From the first church musical to the first children's theatre audition to the first professional job, theatre has been the one constant that has given me more joy than anything else in my life (even though <em>The Wizard of Oz</em> comes close). I love the physical spaces, the people, the culture, the creativity, the innovation, the we've-gotta-figure-this-out-quick moments, and, most of all, the community. I love it all.</p>
-  <p>Live performance is transformative and whether I'm teaching students their vocal parts, brainstorming next season's new merch ideas, or diversifying our revenue sources and balancing the budget, I always lead with integrity and artistic excellence.</p>
-  <p>My commitment to being the most well-rounded leader is what sets me apart from the rest and I intend on spending the rest of my life enriching the lives of others through theatre, education, and leadership. And I'm a really nice guy too!</p>
+  <p>Live performance is transformative and whether I'm teaching students their vocal parts, brainstorming next season's new merch ideas, or finding new revenue sources (and balancing the budget), I always lead with integrity and artistic excellence.</p>
+  <p>Originally a Musical Theatre major, I pivoted for three years to study Vocal Jazz. I simply couldn't live without the theatre so I went back and completed my Musical Theatre degree. What I thought was going to be a lifetime of performing took a backseat to my evolving interests in operations and education, so I changed directions and entered a whole new realm of creativity and passion.</p>
 </section>
 
 <!-- TEACHING & DIRECTING -->
@@ -481,33 +501,33 @@
     <div class="leadership-card">
       <img src="images/aliceroxy.jfif" alt="Summer Theatre Camp Production" class="leadership-card-image">
       <div class="leadership-role">Artistic Leadership</div>
-      <h3 class="leadership-title">Summer Theatre Camp</h3>
+      <h3 class="leadership-title">Director/Music Director</h3>
       <p class="leadership-text">Directed <em>Alice in Wonderland</em> and <em>Grease</em> with 40 students. Designed curriculum, managed auditions, coordinated all rehearsals and productions. Delivered two sold-out free community performances.</p>
+    </div>
+
+    <div class="leadership-card">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=300&h=140&fit=crop" alt="Professional Operations" class="leadership-card-image">
+      <div class="leadership-role">Operational Leadership</div>
+      <h3 class="leadership-title">Front Desk Supervisor</h3>
+      <p class="leadership-text">Front Desk Supervisor at Wyndham Hotel. Stepped into critical role managing all operations: check-in/check-out, forecasting, staff scheduling, guest services, and comprehensive logistics. Demonstrated exceptional customer service and rapid systems mastery.</p>
     </div>
 
     <div class="leadership-card">
       <img src="images/soaroxy.jfif" alt="School of the Arts Production" class="leadership-card-image">
       <div class="leadership-role">Artistic Leadership</div>
-      <h3 class="leadership-title">School of the Arts</h3>
+      <h3 class="leadership-title">Educator/Director</h3>
       <p class="leadership-text">Directed <em>Aladdin Jr.</em> and <em>Through the Decades</em> with 55 students. Built comprehensive curriculum, oversaw full program management, produced two sold-out free performances.</p>
     </div>
 
     <div class="leadership-card">
       <img src="images/hocuspocusroxy.jpg" alt="Hocus Pocus Event" class="leadership-card-image">
-      <div class="leadership-role">Community Leadership</div>
-      <h3 class="leadership-title">Event & Advocacy</h3>
+      <div class="leadership-role">Community Events & Advocacy</div>
+      <h3 class="leadership-title">Event Planner</h3>
       <p class="leadership-text">Produced Hocus Pocus Viewing Party with full marketing and risk management. Developed policy proposal for county public performance space access.</p>
-    </div>
-
-    <div class="leadership-card">
-      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&h=140&fit=crop" alt="Professional Operations" class="leadership-card-image">
-      <div class="leadership-role">Operational Leadership</div>
-      <h3 class="leadership-title">Front Desk Operations</h3>
-      <p class="leadership-text">Front Desk Supervisor at Wyndham Hotel. Stepped into role during critical operational period. Full responsibility: check-in/check-out operations, guest services, forecasting, staff scheduling, issue resolution, complaint follow-up, call management, signage creation, and comprehensive front desk logistics. Demonstrated exceptional customer service, problem-solving, and quick-learning ability across all operational functions.</p>
     </div>
   </div>
 
-  <span class="download-label">↓ Downloadable Documents</span>
+  <a href="#portfolio-section" class="download-label">↓ Downloadable Documents</a>
 </section>
 
 <!-- PERFORMANCE ARCHIVE -->
@@ -527,13 +547,13 @@
 </section>
 
 <!-- PORTFOLIO DOCUMENTS -->
-<section class="portfolio-section portfolio-dark">
+<section class="portfolio-section portfolio-dark" id="portfolio-section">
   <div class="s-label">Work</div>
   <h2>My Work: Portfolio</h2>
   
   <div class="portfolio-item">
     <h3 class="portfolio-title">Theatre Resume</h3>
-    <p class="portfolio-desc">Complete performance history with 30+ professional productions, training credits, and special skills.</p>
+    <p class="portfolio-desc">Complete performance history with professional productions, training credits, and special skills.</p>
     <a href="Theatre_Resume_Full.pdf" class="portfolio-link">View Document →</a>
   </div>
 
@@ -545,7 +565,7 @@
 
   <div class="portfolio-item">
     <h3 class="portfolio-title">Directing Concept</h3>
-    <p class="portfolio-desc"><em>Aladdin Jr.</em> (School of the Arts, 2025): Directing vision, casting philosophy, educational approach, and systems-level production management for 55 students.</p>
+    <p class="portfolio-desc"><em>Aladdin Jr.</em> (School of the Arts): Directing vision, casting philosophy, educational approach, and systems-level production management for 55 students.</p>
     <a href="Directing_Concept_Aladdin_Jr.pdf" class="portfolio-link">View Document →</a>
   </div>
 
@@ -569,15 +589,20 @@
   <div class="s-label">Vision</div>
   <h2>What I'm Looking For</h2>
   <ul>
-    <li>An <strong>organization</strong> that prioritizes education, innovation, discovery, and community.</li>
-    <li>A <strong>community</strong> that values diversity, equity, compassion, and the power of art.</li>
-    <li>Kind <strong>people</strong> who want to make the world a better, more interesting place.</li>
+    <li>An <strong style="color: #8B3A3A;">organization</strong> that prioritizes education, innovation, discovery, and community.</li>
+    <li>A <strong style="color: #8B3A3A;">community</strong> that values diversity, equity, compassion, and the power of art.</li>
+    <li>Kind <strong style="color: #8B3A3A;">people</strong> who want to make the world a better, more interesting place.</li>
   </ul>
   <p style="margin-top: 20px; color: var(--ink); line-height: 1.8;">If you feel our values align and you're looking for the right person for your theater, please reach out! I'd love to hear from you!</p>
 </section>
 
-<!-- FOOTER -->
-<footer>
+<!-- RANDOM INTERESTS -->
+<section>
+  <div class="s-label">About Me</div>
+  <h2>Random Interests</h2>
+  <p><strong>Beyond theatre:</strong> I'm a lifelong learner obsessed with <em>The Wizard of Oz</em> (yes, it rivals theatre for my affection). I love exploring small towns, discovering local restaurants, reading about arts policy and cultural equity, hiking, experimenting with new creative projects, and having really good conversations over coffee. I'm endlessly curious about how communities work, what makes people feel connected, and how art can be a catalyst for change.</p>
+  <p>I believe in saying yes to new experiences, being genuinely kind to everyone I meet, and never underestimating the power of asking good questions. Also, I'm fluent in theatre references and dad jokes — you've been warned!</p>
+</section>
   <div class="footer-contact">
     <a href="tel:6157329348">615.732.9348</a><br>
     <a href="mailto:zacharyawilde@gmail.com">zacharyawilde@gmail.com</a>
